@@ -8,7 +8,7 @@ This is my first React app. Simple ToDo list. This allows you to:
 5. save the Todo data to localStorage.
 
 ### Demo
-[https://shunk76.github.io/react-todo-list/](https://shunk76.github.io/react-todo-list/)
+[https://shunk76.github.io/react-todo-list/](https://shunk76.github.io/react-todo-list/index.html)
 
 ### Usage
 1. Input your ToDo.
