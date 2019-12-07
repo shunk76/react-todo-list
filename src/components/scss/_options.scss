@@ -1,0 +1,33 @@
+/* ==========================================================================================
+ Todo のオプション項目
+========================================================================================== */
+.options {
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 10px;
+  margin: 0 10px;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+
+    &__item {
+      flex: 1;
+
+      &__heading {
+        color: #777;
+        margin-bottom: 3px;
+        font-size: .8rem;
+      }
+
+      & + & {
+        margin-left: 5px;
+      }
+    }
+
+    & + & {
+      margin-left: 10px;
+    }
+  }
+}

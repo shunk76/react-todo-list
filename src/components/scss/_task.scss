@@ -1,0 +1,56 @@
+/* ==========================================================================================
+ タスク
+========================================================================================== */
+.task {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+
+  // Dono / Not Yet を切り替えるチェックボックス
+  &__check {
+    margin-right: 5px;
+  }
+
+  // task が表示されている textarea
+  &__textarea {
+    padding: 3px 3px 0 3px;
+    flex: 1;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    line-height: 1.5;
+    resize: none;
+
+    // textarea にフォーカスしている
+    &[data-editing="true"],
+    .task textarea:focus {
+      outline: 1px solid #ccc;
+    }
+
+    // タスクが終了したとき textarea を非表示
+    &[data-status="done"] {
+      display: none;
+    }
+  }
+
+  // タスクが終了したとき pre 要素を表示
+  &__text {
+    display: none;
+    padding: 3px 3px 0 3px;
+    flex: 1;
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.5;
+    text-decoration: line-through;
+    color: #bbb;
+
+    &[data-status="done"] {
+      display: block;
+    }
+  }
+}

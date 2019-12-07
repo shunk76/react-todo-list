@@ -1,0 +1,30 @@
+/* ==========================================================================================
+ Structure - app の構造
+========================================================================================== */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    background-color: #282c34;
+    font-size: calc(10px + 1vw);
+    color: white;
+
+    &__heading {
+      margin: auto;
+      padding: 10px 0;
+      width: max-content;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+
+  &__body {
+    flex: 1 0 auto;
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+  }
+}

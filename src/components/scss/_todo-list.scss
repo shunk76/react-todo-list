@@ -1,0 +1,26 @@
+/* ==========================================================================================
+ Todo のリスト
+========================================================================================== */
+.todo-list {
+  padding: 0 10px;
+
+  &__item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 60px 10px 10px;
+    margin-bottom: 10px;
+    position: relative;
+
+    // 投稿日時
+    &__time {
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    // 削除ボタン
+    &__remove {
+      font-size: 11px;
+      border: none;
+      background: #fff;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.remove-data {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+
+  &__button {
+    margin: 10px auto 20px;
+    padding: 5px 20px;
+    background: #eee;
+    border: none;
+    border-radius: 15px;
+
+    &:hover {
+      background: #ddd;
+    }
+  }
+}

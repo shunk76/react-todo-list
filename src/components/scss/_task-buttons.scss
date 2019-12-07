@@ -1,0 +1,38 @@
+/* ==========================================================================================
+ タスクを編集したときの save / cancel ボタン
+========================================================================================== */
+.task-buttons {
+  margin-bottom: 5px;
+  text-align: center;
+
+  &[data-editing="false"] {
+    display: none;
+  }
+
+  &__button {
+    padding: 2px 5px;
+    font-size: 14px;
+    line-height: 1.5;
+    background: #fff;
+    border: none;
+    width: 30%;
+    background: #efefef;
+    border-radius: 15px;
+    margin: 0 5px;
+
+    &__save {
+      &:hover {
+        background: #06b800;
+        color: #fff;
+      }
+    }
+
+    &__cancel {
+      &:hover {
+        background: tomato;
+      }
+    }
+  }
+
+
+}
