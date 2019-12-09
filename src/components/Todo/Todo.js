@@ -15,6 +15,7 @@ export default class Todo extends Component {
     this.state = savedState ? savedState : this.defaultState()
   }
 
+  // デフォルトの state を返す
   defaultState = () => {
     const defaultTask = 'Add your tasks or edit this!'
 
@@ -32,6 +33,7 @@ export default class Todo extends Component {
     }
   }
 
+  // state を localStorage に保存する
   saveState = state => {
     window.localStorage.setItem(this.storage, JSON.stringify(state))
   }
@@ -40,6 +42,8 @@ export default class Todo extends Component {
     this.saveState(this.state)
   }
 
+  // localStorage に保存された state を削除する
+  // デフォルトの state に戻す
   removeState = () => {
     window.localStorage.removeItem(this.storage)
     this.setState(this.defaultState())
