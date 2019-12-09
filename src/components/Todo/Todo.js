@@ -7,25 +7,29 @@ export default class Todo extends Component {
   constructor(props) {
     super(props)
 
-    this.defaultState = {
+    this.storage = 'app-state'
+    const savedState = JSON.parse(localStorage.getItem(this.storage))
+
+    // すでに保存されたデータがある場合は、それを使う
+    // ない場合は、defaultState を呼ぶ
+    this.state = savedState ? savedState : this.defaultState()
+  }
+
+  defaultState = () => {
+    const defaultTask = 'Add your tasks or edit this!'
+
+    return {
       tasks: [{
-        task: 'Add your tasks or edit this!',
-        before: 'Add your tasks or edit this!',
-        status: false,
-        editing: false,
+        task: defaultTask,
+        before: defaultTask,
+        status: false, // true => Done, false => NotYet
+        editing: false, // true => タスクを編集中
         time: getDateTime(),
         priority: 'middle',
         id: 0
       }],
       uniquId: 1
     }
-
-    this.storage = 'app-state'
-    const savedState = JSON.parse(localStorage.getItem(this.storage))
-
-    // すでに保存されたデータがある場合は、それを使う
-    // ない場合は、defaultState を deep copy する
-    this.state = savedState ? savedState : Object.assign({}, this.defaultState)
   }
 
   saveState = state => {
@@ -38,7 +42,7 @@ export default class Todo extends Component {
 
   removeState = () => {
     window.localStorage.removeItem(this.storage)
-    this.setState(this.defaultState)
+    this.setState(this.defaultState())
   }
 
   // Todo を追加
@@ -51,7 +55,7 @@ export default class Todo extends Component {
     tasks.unshift({
       task: todo.task,
       before: todo.task,
-      status: false, // true => Done, false => NotYet
+      status: false,
       editing: false,
       time: getDateTime(),
       priority: todo.priority,
