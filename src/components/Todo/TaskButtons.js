@@ -2,21 +2,13 @@ import React, { Component } from 'react'
 
 // task を編集したときの、save / cencel ボタン
 export default class TaskButtons extends Component {
-  constructor(props) {
-    super(props)
-
-    Object.getOwnPropertyNames(this.__proto__).forEach(func =>
-      this[func] = this[func].bind(this)
-    )
-  }
-
   // タスクを更新した
-  handleUpdated() {
+  handleUpdated = () => {
     this.props.updatedTask(this.props.id)
   }
 
   // タスクを編集したが、キャンセルした
-  handleDidNotUpdate() {
+  handleDidNotUpdate = () => {
     this.props.didNotUpdateTask(this.props.id)
   }
 

@@ -3,19 +3,11 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 // 設定済みの task 
 export default class Task extends Component {
-  constructor(props) {
-    super(props)
-
-    Object.getOwnPropertyNames(this.__proto__).forEach(func =>
-      this[func] = this[func].bind(this)
-    )
-  }
-
-  handleCheck() {
+  handleCheck = () => {
     this.props.doneTodo(this.props.id)
   }
 
-  handleChangeTask(e) {
+  handleChangeTask = e => {
     this.props.changeTask(this.props.id, e.target.value)
   }
 

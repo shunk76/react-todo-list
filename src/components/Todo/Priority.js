@@ -4,14 +4,6 @@ import OtherPriority from './OtherPriority'
 
 // Todo に設定済みの priority
 export default class Priority extends Component {
-  constructor(props) {
-    super(props)
-
-    Object.getOwnPropertyNames(this.__proto__).forEach(func =>
-      this[func] = this[func].bind(this)
-    )
-  }
-
   render() {
     return (
       <div className="priority">

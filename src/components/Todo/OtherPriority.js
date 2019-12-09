@@ -4,17 +4,9 @@ import PriorityIcon from './PriorityIcon'
 
 // Todo に設定済みの priority 以外の priority のリスト
 export default class OtherPriority extends Component {
-  constructor(props) {
-    super(props)
-
-    Object.getOwnPropertyNames(this.__proto__).forEach(func =>
-      this[func] = this[func].bind(this)
-    )
-  }
-
   // 設定済みの priority をクリックして、その他の priority の表示/非表示を切り替える
   // プライオリティを変更する
-  handleClick(e) {
+  handleClick = e => {
     this.props.handleToggle()
     this.props.changePriority(this.props.id, e.currentTarget.value)
   }

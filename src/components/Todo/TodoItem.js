@@ -11,17 +11,13 @@ export default class TodoItem extends Component {
     this.state = {
       show: false
     }
-
-    Object.getOwnPropertyNames(this.__proto__).forEach(func =>
-      this[func] = this[func].bind(this)
-    )
   }
 
-  handleRemove() {
+  handleRemove = () => {
     this.props.removeTodo(this.props.id)
   }
 
-  handleToggle() {
+  handleToggle = () => {
     this.setState({
       show: !this.state.show
     })

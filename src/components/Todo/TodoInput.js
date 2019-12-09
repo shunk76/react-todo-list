@@ -12,40 +12,36 @@ export default class TodoInput extends Component {
     }
 
     this.state = this.defaultState
-
-    Object.getOwnPropertyNames(this.__proto__).forEach(func =>
-      this[func] = this[func].bind(this)
-    )
   }
 
-  handleClick() {
+  handleClick = () => {
     // Todo を追加
     this.props.addTodo(this.state)
     // input を空にし、priority を middle にする
     this.setState(this.defaultState)
   }
 
-  handleEnter(e) {
+  handleEnter = e => {
     if (e.shiftKey && e.key === 'Enter') {
       this.props.addTodo(this.state)
       this.setState(this.defaultState)
     }
   }
 
-  handleChange(e) {
+  handleChange = e => {
     this.setState({
       task: e.target.value
     })
   }
 
-  handleChangePriority(e) {
+  handleChangePriority = e => {
     this.setState({
       // priority の変更する
       priority: e.currentTarget.value
     })
   }
 
-  handleChangePriorityWithKeyBoard(e) {
+  handleChangePriorityWithKeyBoard = e => {
     // キーボードで priority を変更する
     if (e.shiftKey === false && e.key === 'Enter') {
       this.setState({
