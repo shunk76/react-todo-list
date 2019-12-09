@@ -23,7 +23,9 @@ export default class Todo extends Component {
     this.storage = 'app-state'
     const savedState = JSON.parse(localStorage.getItem(this.storage))
 
-    this.state = savedState ? savedState : JSON.parse(JSON.stringify(this.defaultState))
+    // すでに保存されたデータがある場合は、それを使う
+    // ない場合は、defaultState を deep copy する
+    this.state = savedState ? savedState : Object.assign({}, this.defaultState)
 
     // method に this を bind
     Object.getOwnPropertyNames(this.__proto__).forEach(func =>
