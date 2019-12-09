@@ -26,28 +26,23 @@ export default class Todo extends Component {
     // すでに保存されたデータがある場合は、それを使う
     // ない場合は、defaultState を deep copy する
     this.state = savedState ? savedState : Object.assign({}, this.defaultState)
-
-    // method に this を bind
-    Object.getOwnPropertyNames(this.__proto__).forEach(func =>
-      this[func] = this[func].bind(this)
-    )
   }
 
-  saveState(state) {
+  saveState = state => {
     window.localStorage.setItem(this.storage, JSON.stringify(state))
   }
 
-  handleSave() {
+  handleSave = () => {
     this.saveState(this.state)
   }
 
-  removeState() {
+  removeState = () => {
     window.localStorage.removeItem(this.storage)
     this.setState(this.defaultState)
   }
 
   // Todo を追加
-  addTodo(todo) {
+  addTodo = todo => {
     todo.task = todo.task.trim()
     if (todo.task === '') return
 
@@ -70,14 +65,14 @@ export default class Todo extends Component {
   }
 
   // ゴミ箱アイコン🗑をクリックして、タスクを削除。
-  removeTodo(id) {
+  removeTodo = id => {
     this.setState({
       tasks: this.state.tasks.filter(task => task.id !== id)
     }, this.handleSave)
   }
 
   // Todo を完了にする
-  doneTodo(id) {
+  doneTodo = id => {
     this.setState(this.state.tasks.map(task => {
       if (task.id === id) {
         task.status = !task.status
@@ -87,7 +82,7 @@ export default class Todo extends Component {
   }
 
   // タスクの編集を保存する
-  updatedTask(id) {
+  updatedTask = id => {
     this.setState(this.state.tasks.map(task => {
       if (task.id === id) {
         task.editing = false
@@ -99,7 +94,7 @@ export default class Todo extends Component {
   }
 
   // タスクの編集をキャンセルして、元のタスクを表示する
-  didNotUpdateTask(id) {
+  didNotUpdateTask = id => {
     this.setState(this.state.tasks.map(task => {
       if (task.id === id) {
         task.editing = false
@@ -112,7 +107,7 @@ export default class Todo extends Component {
   }
 
   // タスクを編集する
-  changeTask(id, value) {
+  changeTask = (id, value) => {
     this.setState(this.state.tasks.map(task => {
       if (task.id === id) {
         task.editing = true
@@ -124,7 +119,7 @@ export default class Todo extends Component {
   }
 
   // 投稿済みのタスクの Priority を変更する
-  changePriority(id, priority) {
+  changePriority = (id, priority) => {
 
     this.setState(this.state.tasks.map(task => {
       if (task.id === id) {
