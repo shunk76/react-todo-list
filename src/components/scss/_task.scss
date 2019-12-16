@@ -27,8 +27,7 @@
     resize: none;
 
     // textarea にフォーカスしている
-    &[data-editing="true"],
-    .task textarea:focus {
+    &[data-editing="true"]{
       outline: 1px solid #ccc;
     }
 
