@@ -19,16 +19,13 @@
       width: 100%;
 
       @media (min-width: 600px) {
-        &:focus,
         &:hover {
-          outline: none;
           background: #deffde;
           border-color: #1aa31a;
         }
       }
       
       &--selected {
-        outline: none;
         background: #ecffec;
         border-color: #41bd41;
       }
