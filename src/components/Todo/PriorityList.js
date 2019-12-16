@@ -10,7 +10,7 @@ export default class PriorityList extends Component {
       const tabIndex = Number(this.props.tabIndex) + index
 
       const props = {
-        key: Date.now(),
+        key: index,
         value: priority,
         tabIndex: tabIndex,
         className: `priority-list__item__button${priority === this.props.priority ? ' priority-list__item__button--selected' : ''}`,

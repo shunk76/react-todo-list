@@ -18,6 +18,7 @@ export default class Todo extends Component {
   // デフォルトの state を返す
   defaultState = () => {
     const defaultTask = 'Add your tasks or edit this!'
+    const defaultPriority = 'middle'
 
     return {
       tasks: [{
@@ -26,10 +27,14 @@ export default class Todo extends Component {
         status: false, // true => Done, false => NotYet
         editing: false, // true => タスクを編集中
         time: getDateTime(),
-        priority: 'middle',
+        priority: defaultPriority,
         id: 0
       }],
-      uniquId: 1
+      uniquId: 1,
+      input: {
+        task: '',
+        priority: defaultPriority
+      }
     }
   }
 
@@ -47,6 +52,22 @@ export default class Todo extends Component {
   removeState = () => {
     window.localStorage.removeItem(this.storage)
     this.setState(this.defaultState())
+  }
+
+  setTask = task => {
+    const input = this.state.input
+    input.task = task
+    this.setState({
+      input
+    }, this.handleSave)
+  }
+
+  setPriority = priority => {
+    const input = this.state.input
+    input.priority = priority
+    this.setState({
+      input
+    }, this.handleSave)
   }
 
   // Todo を追加
@@ -153,7 +174,7 @@ export default class Todo extends Component {
 
     return (
       <div className="todo">
-        <TodoInput addTodo={this.addTodo} />
+        <TodoInput addTodo={this.addTodo} setPriority={this.setPriority} setTask={this.setTask} input={this.state.input} />
         <TodoList {...props} />
         <p className="remove-data">
           This app uses localStorage to store ToDo data.<br />
