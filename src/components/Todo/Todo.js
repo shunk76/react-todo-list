@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
-import getDateTime from '../functons/getDateTime'
+import getDateTime from '../functions/getDateTime'
 
 export default class Todo extends Component {
   constructor(props) {
